@@ -13,8 +13,8 @@ on:
     - .azure/**/*.bicep
   workflow_dispatch:
     inputs:
-      dev:
-        description: 'dev to run'     
+      environment:
+        description: 'environment to run'     
         required: true
         default: 'development'
       mode:
@@ -24,7 +24,7 @@ env:
   API_NAME: 'api-mechbaycom-dev-001'
   APPINSIGHTS_NAME: 'appi-mechbaycom-dev-001'
   ARM_PATH: './.azure'
-  AZURE_RG_dev: 'Development'
+  AZURE_RG_ENVIRONMENT: 'Development'
   AZURE_RG_LOCATION: 'westus2'
   AZURE_RG_NAME: 'mb-rg-mechbaycom-dev-001'
   KEYVAULT_NAME: 'kv-mechbaycom-dev-001'
