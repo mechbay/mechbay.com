@@ -84,15 +84,6 @@ jobs:
           template: ${{ env.ARM_PATH }}/st-storageaccount.bicep
           parameters: name=${{ env.STORAGE_NAME }}
 
-      # stmechbaycomdev001
-      - name: Deploy ${{ env.STORAGE_NAME }}
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          resourceGroupName: ${{ env.AZURE_RG_NAME }}
-          template: ${{ env.ARM_PATH }}/st-storageaccount.bicep
-          parameters: name=${{ env.STORAGE_NAME }}
-
       # kv-mechbaycom-dev-001
       - name: Deploy ${{ env.KEYVAULT_NAME }}
         uses: azure/arm-deploy@v1
