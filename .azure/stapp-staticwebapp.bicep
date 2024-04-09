@@ -1,29 +1,19 @@
+@description('Name of the Static Web App. (stapp)')
 param name string
-param location string
+
+@description('Azure region of the deployment')
+param location string = resourceGroup().location
+
+@allowed([ 'Free', 'Standard' ])
 param sku string = 'Free'
-param repositoryUrl string
-param branch string
 
-@secure()
-param repositoryToken string
-param appLocation string
-param apiLocation string
-param appArtifactLocation string
+@description('Tags to add to the resources')
+param tags object = {}
 
-resource name_resource 'Microsoft.Web/staticSites@2021-01-01' = {
+resource name_resource 'Microsoft.Web/staticSites@2022-09-01' = {
   name: name
   location: location
-  tags: {}
-  properties: {
-    repositoryUrl: repositoryUrl
-    branch: branch
-    repositoryToken: repositoryToken
-    buildProperties: {
-      appLocation: appLocation
-      apiLocation: apiLocation
-      appArtifactLocation: appArtifactLocation
-    }
-  }
+  tags: tags
   sku: {
     tier: sku
     name: sku
