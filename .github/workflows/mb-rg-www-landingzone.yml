@@ -21,7 +21,7 @@ on:
         description: 'Running mode'  
 
 env:
-  API_NAME: 'api-mechbaycom-dev-001'
+  STAPP_NAME: 'stapp-mechbaycom-dev-001'
   APPINSIGHTS_NAME: 'appi-mechbaycom-dev-001'
   ARM_PATH: './.azure'
   AZURE_RG_ENVIRONMENT: 'Development'
@@ -103,10 +103,10 @@ jobs:
           parameters: name=${{ env.APPINSIGHTS_NAME }} workName=${{ env.WORKSPACE_NAME }} workResourceGroupName=${{ env.SHARED_RG_NAME }}
 
       # stapp-mechbaycom-dev-001
-      - name: Deploy ${{ env.API_NAME }}
+      - name: Deploy ${{ env.STAPP_NAME }}
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           resourceGroupName: ${{ env.AZURE_RG_NAME }}
           template: ${{ env.ARM_PATH }}/stapp-staticwebapp.bicep
-          parameters: name=${{ env.API_NAME }}
+          parameters: name=${{ env.STAPP_NAME }}

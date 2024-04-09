@@ -1,4 +1,6 @@
 @description('Name of the Static Web App. (stapp)')
+@minLength(2)
+@maxLength(60)
 param name string
 
 @description('Azure region of the deployment')
