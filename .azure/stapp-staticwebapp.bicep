@@ -12,12 +12,13 @@ param sku string = 'Free'
 @description('Tags to add to the resources')
 param tags object = {}
 
-resource name_resource 'Microsoft.Web/staticSites@2022-09-01' = {
+resource stappresource 'Microsoft.Web/staticSites@2022-09-01' = {
   name: name
   location: location
   tags: tags
   sku: {
-    tier: sku
     name: sku
   }
 }
+
+output stappresourceId string = stappresource.id
